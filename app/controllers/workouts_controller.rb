@@ -1,4 +1,6 @@
 class WorkoutsController < ApplicationController
+  before_action :find_workout, only: [:show, :edit, :update, :destroy]
+  
   def index
   end
 
@@ -36,5 +38,6 @@ class WorkoutsController < ApplicationController
     end
 
     def find_workout
+      @workout = Workout.find(params[:id])
     end
 end
